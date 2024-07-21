@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.ArrayList;
 
 import org.xinghai.light_mist.ReadFile;
 
@@ -16,6 +17,7 @@ public class Main {
         if (ReadFile.code == 1){
             System.out.println("出现错误！来自文件读取，错误内容："+jsonValue);
         }
+        List<Integer> names = new ArrayList<>();
         ObjectMapper mapper = new ObjectMapper();
         try {
             List<Map<String, Object>> jsonArray;
@@ -25,10 +27,12 @@ public class Main {
                 String runvalue = (String) obj.get("command");
                 String dirPath = (String) obj.get("dir");
                 File rundir = new File(dirPath);
+                names.add(Integer.valueOf((String) obj.get("name")));
                 Process process = Runtime.getRuntime().exec(runvalue, null, rundir);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("已成功执行所有指令，列表为："+names);
     }
 }
