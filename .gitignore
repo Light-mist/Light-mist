@@ -3,6 +3,9 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+### Project Test ###
+config/
+
 ### IntelliJ IDEA ###
 .idea/
 .idea/modules.xml
