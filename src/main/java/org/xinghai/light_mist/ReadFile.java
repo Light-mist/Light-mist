@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class ReadFile {
+    static int code = 1;
     public static String get_file(String filePath) {
         StringBuilder result = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -12,6 +13,7 @@ public class ReadFile {
             while ((line = reader.readLine()) != null) {
                 result.append(line);
             }
+            code = 0;
         } catch (IOException e) {
             result = new StringBuilder(1);
         }
