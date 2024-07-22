@@ -13,7 +13,7 @@ import com.alibaba.fastjson2.JSONObject;
 
 public class Main {
     public static void main(String[] args) {
-        String file = "config/data.json";
+        String file = "config/light_mist.json";
         List<String> names = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(file)))
         {

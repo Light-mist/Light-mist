@@ -5,7 +5,7 @@
 
 ## 使用
 - 下载[光雾](https://github.com/Linght-mist/Linght-mist/releases/download/v1.0.0/Linght-mist.jar)
-- 在执行目录下创建config文件夹，并在其中创建config.json。
+- 在执行目录下创建config文件夹，并在其中创建light_mist.json。
 ```json
 [
     {
