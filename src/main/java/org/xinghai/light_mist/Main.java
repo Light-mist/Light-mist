@@ -31,7 +31,7 @@ public class Main {
                 String runvalue = obj.getString("command");
                 String dirPath = obj.getString("dir");
                 File rundir = new File(dirPath);
-                names.add(obj.getString("name"));
+                names.add(Integer.valueOf(obj.getString("name")));
                 Process process = Runtime.getRuntime().exec(runvalue, null, rundir);
             }
         } catch (IOException e) {
