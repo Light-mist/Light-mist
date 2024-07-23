@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
 import org.xinghai.light_mist.RunCommand;
+import org.xinghai.light_mist.Input;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
@@ -36,6 +37,10 @@ public class Main {
                 if (!RunCommand.run_yes){
                     System.out.println("抱歉！暂不支持此系统！");
                 }
+            }
+            String get_input = Input.input();
+            if(get_input=="exit"){
+                return;
             }
         } catch (IOException e) {
             e.printStackTrace();
