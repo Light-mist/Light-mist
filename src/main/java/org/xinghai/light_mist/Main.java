@@ -17,6 +17,7 @@ public class Main {
     public static void main(String[] args) {
         String file = "config/light_mist.json";
         List<String> names = new ArrayList<>();
+        List<Process> runs = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(file)))
         {
             String jsonString;
@@ -34,7 +35,7 @@ public class Main {
                 String dirPath = obj.getString("dir");
                 File rundir = new File(dirPath);
                 names.add(obj.getString("name"));
-                RunCommand.run(rundir, runvalue);
+                runs.add(RunCommand.run(rundir, runvalue));
                 if (!RunCommand.run_yes){
                     System.out.println("抱歉！暂不支持此系统！");
                 }
@@ -46,6 +47,9 @@ public class Main {
         String get_input = Input.input();
         if (get_input.equals("exit")) {
             System.err.println("正在退出中...");
+            for (Process p : runs) {
+                p.destroy();
+            }
         } else if (get_input.startsWith("run")) {
             String[] parts = get_input.split(" ");
             if (parts.length >= 3) {
